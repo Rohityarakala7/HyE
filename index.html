@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hycell Engage ®</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* background-color: black; */
+    font-family: monospace;
+}
+.main{
+    overflow-y: scroll;
+}
+html,body{
+    height: 100%;
+    width:100%;
+}
+
+#page1{
+    display: inline-block;
+    width: 100%;
+    background-color: rgb(1, 2, 18);
+    position: relative;
+   
+
+}
+#page1 video{
+   height: auto;
+    width: 100%;
+    object-fit: cover;
+    /* position: absolute; */
+}
+
+#page1-content{
+    height: 100%;
+    width: 100%;
+    /* background-color: rgba(0, 0, 0, 0.732); */
+    position: relative;
+    z-index: 9;
+    color: rgb(240, 238, 238);
+    font-size: large;
+}
+.main nav{
+    /* height: 100px; */
+    width: 100%;
+    /* background-color: rgb(8, 138, 189); */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw 3vw;
+    background-color: rgba(1, 22, 30, 0.226);
+    position:fixed;
+
+}
+#cursor{
+    height: 6.5vw;
+    width: 6.5vw;
+    background-color:rgba(3, 73, 101,0.4) ;
+    border-radius: 100%;
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%,-50%);
+    color: rgb(12, 12, 12);
+    cursor: pointer;
+}
+#page2{
+    height: 170vh;
+    width: 100%;
+    background-color: rgb(1, 2, 18);
+}
+
+/* Existing styles above */
+
+#video-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);  /* Dark overlay */
+    display: none;  /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 98;  /* Bring above everything */
+    opacity: 0;  /* Invisible before animation */
+    backdrop-filter: blur(10px);
+}
+
+#video-popup video {
+    max-width: 80%;
+    max-height: 80%;
+    transform: scale(1);
+    position: flex;
+    /* top: 10%; */
+    /* left: 15%;  Initially scaled down */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Style for the close button */
+#close-popup {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 101;
+}
+#guidebtn:hover {
+    cursor: pointer;
+}
+#animbtn:hover {
+    cursor: pointer;
+}
+#side-menu {
+            position: fixed;
+            top: 0;
+            right: -600px; /* Initially hidden */
+            height: 100vh;
+            width: 600px; /* Larger width for larger content */
+            background-color: rgba(255, 255, 255, 0.1);  /* Light color with reduced opacity */
+            backdrop-filter: blur(20px); /* Blurred background */
+            color: rgb(9, 3, 50);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            box-shadow: -3px 0 15px rgba(0, 0, 0, 0.5);
+            filter: brightness(1.3); /* Increase brightness */
+        }
+
+        #side-menu h4 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2rem; /* Larger font size */
+        }
+
+        #side-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #side-menu ul li {
+            margin: 25px 0;
+            cursor: pointer;
+            font-size: 1.8rem; /* Larger font size for options */
+        }
+
+        a{
+            text-decoration: none;
+            padding: 10px;
+            
+            margin: 10px;
+            
+            color: rgb(60, 60, 130);
+        }
+
+        #close-side-menu {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
+            font-size: 2rem;
+            color: rgb(10, 3, 55);
+        }
+
+        /* Blur the main content when the menu is active */
+        .blur-content {
+            filter: blur(10px);
+        }
+        #cursor h5{
+            position: relative;
+            top: 4%;
+            font-size: 70%;
+        }
+        #bod2{
+            display: flex;
+            color: white;
+            font-family: monospace;
+            height: 50vh;
+
+        }
+        #bod2 h2{
+            padding: 10px;
+            
+        }
+        #img2{
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 70vh; */
+        }
+        #imgbox2 img{
+            width: 100%;
+            transition: transform 1.5s ease; 
+
+        }
+        #imgbox2 img:hover{
+            transform: scale(1.3); /* Zooms in the image by 20% */
+
+        }
+        #imgbox2{
+            width: 50%;
+            height: 70%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1.5s ease; 
+        }
+        #imgbox2:hover{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        #head2 h1{
+            color: white;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            padding: 10px;
+            font-size:60px;
+        }
+        #head2{
+            padding: 40px;
+        }
+#hycell{
+    left: -3.5%;
+}
+#engage{
+    left:3.5%
+}
+#x{
+    margin-bottom: 30px;
+   
+}
+#cont2{
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+}
+@media only screen and (max-width: 1024px) {
+    #page1-content nav h1 {
+        font-size: 2rem; /* Smaller title on tablets */
+    }
+
+    #side-menu {
+        width: 80vw; /* Shrink the side menu on tablets */
+    }
+
+    #cursor {
+        height: 7vw;
+        width: 7vw;
+    }
+    #cursor h5{
+        font-size: 1vw;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Adjust layout for mobile screens */
+    #page1-content nav h1 {
+        font-size: 1.8rem; /* Smaller title for mobile */
+    }
+
+    #page1-content nav h4 {
+        font-size: 1.5rem;
+    }
+
+    #head2 h1 {
+        font-size: 3rem; /* Smaller headings */
+    }
+
+    #bod2 {
+        flex-direction: column; /* Stack content vertically */
+        padding: 15px;
+    }
+
+    #imgbox2 {
+        width: 100%;
+        height: 40vh; /* Reduce image height */
+    }
+
+    #side-menu {
+        width: 70vw; /* Smaller menu for mobile */
+        padding: 20px;
+    }
+
+    /* Font and spacing adjustments */
+    #bod2 h2 {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    #page2 {
+        padding: 20px;
+    }
+
+    #cursor {
+        visibility: none; /* Hide custom cursor on mobile */
+    }
+    #cursor h5{
+        visibility: none;
+    }
+
+    /* Mobile adjustments for video popup */
+    #video-popup video {
+        width: 90%; /* Scale video size on small screens */
+        height: auto;
+    }
+
+    /* Make nav fixed at the top for better mobile experience */
+    nav {
+        position: absolute;
+        width: 100%;
+    }
+}
+#video-popup video {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+#bod2 {
+    display: flex;
+    color: white;
+    font-family: monospace;
+    height: auto; /* Change fixed height to auto */
+    padding-bottom: 70px; /* Add padding to the bottom */
+}
+
+.foter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px; /* Add padding for spacing */
+    margin-top: 30px; /* Ensure space above the footer */
+    background-color: rgba(0, 0, 0, 0.967); /* Optional: add background color */
+    position: relative; /* Ensure it's positioned correctly */
+    width: 100vw;
+    left: 0%;
+    
+}
+.footer h3{
+    width: 120vh;
+}
+
+@media only screen and (max-width: 768px) {
+    #bod2 {
+        flex-direction: column; /* Stack content vertically */
+        padding: 15px;
+        margin-bottom: 30px; /* Ensure space below the content */
+    }
+
+    .foter {
+        margin-top: 20px; /* Space above footer */
+        padding: 15px; /* Adjust padding */
+        font-size: 1rem; /* Adjust font size if needed */
+    }
+}
+
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script> -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- Bootstrap JS and Popper.js (for responsive navbar) -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <div class="main">
+        <div id="cursor"><h5><b>Play video</b></h5></div>
+        <div id="page1">
+            
+            <div id="page1-content">
+                <nav>
+                    <h1 id="animbtn">Hycell Engage</h3>
+                        <div id="guidebtn"><i class="ri-menu-line" style="font-size: 1.8rem;"></i></div>
+
+                </nav>
+                <video autoplay loop muted src="./videoo.mp4"></video>
+            </div>
+        </div>
+        <div id="page2">
+            <div id="head2">
+                <h1 id="hycell">Hycell</h1>
+                <h1 id="engage">Engage</h1>
+            </div><hr style="width: 60%; border: 1px solid white; margin: 0 auto;" id="x">
+            >
+
+            <div id="bod2">
+                <div id="cont2">
+                <h2>Hycell revolutionizes green transport with hydrogen-powered buses and cars.</h2>
+                <h2>Our vehicles are designed for export from India to global markets.</h2>
+                <h2>Invest in cutting-edge technology driving sustainability and reducing emissions. </h2>
+                <h2>Join us in pioneering clean energy solutions for a better tomorrow.</h2>
+
+
+            </div>
+            <div id="img2" style="width: 100%;">
+                <div id="imgbox2" style="height: 50vh;">
+                    <img src="Designer (4).png" alt="Hycell Bus">
+                </div>
+            </div>
+            
+            </div>
+            <hr style="width: 80%; border: 1px solid rgb(254, 252, 252); margin: 0 auto; margin-top: 60px;" id="x">
+
+    <div class="foter" style="display: flex; ">
+       <h3 style="margin: 30px auto; color: white;"> © Hycell Engage. Established 2024. All rights reserved.</h3>
+    </div>
+        </div>
+        
+    </div>
+
+    <!-- New video popup overlay container -->
+    <div id="video-popup">
+        <video id="popup-video" src="./videoo.mp4" controls></video>
+        <div id="close-popup">X</div> <!-- Close button -->
+    </div>
+    <div id="side-menu">
+        <div id="close-side-menu"><i class="ri-arrow-right-line"></i></div>
+        <h4>Menu</h4>
+        <ul>
+            
+            <li><a href="OurHistory.html">Our History</a></li>
+        <li><a href="ClientsandCollaborations.html">Clients & Collaborations</a></li>
+        
+        <li><a href="ourFuelCell.html">Our Fuel Cell</a></li>
+        <li><a href="OurLeadership.html">Our Leadership</a></li>
+        </ul>
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".main"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".main", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+});
+
+
+
+
+
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+
+//         function naveffect(){
+//             gsap.from("nav h1", {
+//   y: 10,         // Moves the element 10px from its original Y position
+//   duration: 1,   // Duration of the animation (in seconds)
+//   stagger: 0.2,  // Staggers the animation by 0.2 seconds for each element
+//   ease: "power3.out" // Optional: Adds an ease-out effect
+// });
+//         }
+
+
+
+
+    
+    function cursorEffect() {
+        var cursor = document.querySelector("#cursor");
+        var popup = document.querySelector("#video-popup");
+        var popupVideo = document.querySelector("#popup-video");
+        var closePopup = document.querySelector("#close-popup");
+        var pump= document.querySelector("#page1 video");
+        var pagenav=document.querySelector("nav");
+        var cursorh5=document.querySelector("nav h5")
+       
+        // Animate cursor movement
+        var page1Content = document.querySelector("#page1-content");
+        document.addEventListener("mousemove", function(dets) {
+    gsap.to(cursor, {
+        x:dets.x,
+        y:dets.y,
+        duration: 0.1,
+        ease: "power2.out",
+        overwrite: "auto"  // Avoid restarting animations
+    });
+});
+
+        page1Content.addEventListener("mouseenter", function() {
+            gsap.to(cursor, {
+                scale: 1,
+                duration: 0.3,
+                opacity: 1
+            });
+            
+        });
+    
+        page1Content.addEventListener("mouseleave", function() {
+            gsap.to(cursor, {
+                scale: 0,
+                duration: 0.6,
+                opacity: 0
+            });
+        });
+    
+        // Click event to show the video popup
+        cursor.addEventListener("click", function() {
+            popup.style.display="block"
+            
+            
+            
+            gsap.to(popup, {
+                opacity: 1,  // Fade in
+                duration: 0.5,
+                onComplete: function() {
+                    // Animate the popup video (scale and rotation)
+                    gsap.to(popupVideo, {
+                        scale: 1,
+                          // Rotate as it scales up
+                        duration: 1,
+                        ease: "inOut",
+                        onComplete: function() {
+                            // Delay video play by 1 second (1000ms)
+                            setTimeout(function() {
+                                popupVideo.play();
+                            }, 100); // 1000ms delay
+                        }
+                    });
+                }
+            });
+            
+            pump.pause()
+        });
+    
+        // Click event to close the video popup
+        closePopup.addEventListener("click", function() {
+            pump.play()
+            gsap.to(popup, {
+                opacity: 0,  // Fade out
+                duration: 0.5,
+               
+                onComplete: function() {
+                    popup.style.display = "none";  // Hide the popup
+                    popupVideo.pause();  // Pause video
+                    popupVideo.currentTime = 0;  // Reset video to start
+                    gsap.set(popupVideo, { scale: 0 });  // Reset the scale
+                }
+            });
+        });
+
+        pagenav.addEventListener("mouseenter",function(){
+            
+            gsap.to(cursor, {
+                scale: 0,
+                duration: 0.3,
+                opacity: 0
+            });
+           
+            cursor.style.display="none";
+           
+        });
+        pagenav.addEventListener("mouseleave",function(){
+            cursor.style.display="flex";
+            
+  
+
+            gsap.to(cursor, {
+                scale: 1,
+                duration: 0.3,
+                opacity: 1
+            });
+            
+        });
+        // cursor.addEventListener("mouseenter",function(){
+        //     gsap.to(cursor,{
+        //         scale:1,
+        //         duration:0,
+        //         opacity:1
+        //     })
+        // })
+    }
+    function sideMenuEffect() {
+            var guideBtn = document.querySelector("#guidebtn");
+            var sideMenu = document.querySelector("#side-menu");
+            var closeMenu = document.querySelector("#close-side-menu");
+            var mainContent = document.querySelector(".main"); // Main content to blur
+
+            // Show the side menu on Guide button click
+            guideBtn.addEventListener("click", function() {
+                gsap.to(sideMenu, {
+                    x: -600,  // Move into view (adjusted for larger size)
+                    duration: 0.6,
+                    ease: "power2.inOut"
+                });
+                // Blur the background content
+                mainContent.classList.add("blur-content");
+            });
+
+            // Close the side menu
+            closeMenu.addEventListener("click", function() {
+                gsap.to(sideMenu, {
+                    x: 0,  // Move out of view
+                    duration: 0.6,
+                    ease: "power2.inOut"
+                });
+                // Remove the blur effect
+                mainContent.classList.remove("blur-content");
+            });
+        }
+       
+        // naveffect();
+        sideMenuEffect();
+    
+    cursorEffect();
+    
+    function page2Animation() {
+  gsap.from("#cont2 h2", {
+    y: 40,
+    opacity: 0,
+    stagger: 0.22,
+    duration: 1,
+    scrollTrigger: {   // Corrected attribute name
+      trigger: "#engage",
+      scroller: ".main",
+      start: "top 75%",   // Adjusted start point
+      end: "top 15%",  
+       scrub:4, // Adjusted end point
+    //   markers: {          // Markers configuration
+    //     startColor: "blue",
+    //     endColor: "red",
+    //     fontSize: "16px",
+    //     fontWeight: "bold",
+    //     indent: 20,
+    //     onEnter: () => console.log("Animation Triggered!"),
+    //   }
+    }
+  });
+
+  gsap.from("#imgbox2",{
+    scale:1.2,
+    opacity:0,
+    duration:0.5,
+    scrollTrigger:{
+        trigger: "#engage",
+      scroller: ".main",
+      start: "top 75%",   // Adjusted start point
+      end: "top 15%",  
+      
+    }
+  });
+
+  gsap.from("#hycell",{
+    x:-60,
+    opacity:0,
+    duration:1,
+    scrollTrigger:{
+        trigger:"hr",
+        scroller:".main",
+        start:"top 75%",
+        end:"top 15%",
+        scrub:2
+    }
+  });
+  gsap.from("#engage",{
+    x:60,
+    opacity:0,
+    duration:1,
+    scrollTrigger:{
+        trigger:"hr",
+        scroller:".main",
+        start:"top 75%",
+        end:"top 15%",
+        scrub:2
+    }
+  });
+
+  gsap.from("hr",{
+    scale:1.2,
+    
+    duration:2,
+    scrollTrigger:{
+        trigger:"hr",
+        scroller:".main",
+        start:"top 75%",
+        end:"top 15%",
+        scrub:4
+    }
+  });
+}
+
+
+page2Animation();
+document.getElementById('animbtn').onclick = function() {
+        window.location.href = 'hycell.jpg'; // Replace with your image path
+    };
+    const parent = document.querySelector("#page1");
+const childImage = document.querySelector("#page1 video");
+
+// Wait for the child image to load
+childImage.onload = function() {
+    parent.style.height = `${childImage.clientHeight}px`; // Set parent's height to the image's height
+};
+
+    </script>
+</body>
+</html>

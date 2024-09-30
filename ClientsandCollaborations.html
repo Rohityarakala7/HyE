@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+    }
+    #head1{
+        font-size: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+    #head3{
+        font-size: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+    #body1{
+        height: 30vh;
+        overflow: hidden;
+    }
+    #body2{
+        height: 30vh;
+        overflow: hidden;
+    }
+    #body3{
+        height: 80vh;
+    }
+    #sidescroll{
+        display: flex;
+        height: 20vh;
+        width: 100vw;
+       
+    }
+    .imgcont{
+        width:25vw;
+        
+        padding-right: 5vw;
+       
+    }
+    #sidescroll img{
+        width: 100%;
+        height: 100%;
+    }
+    #hhf-1 i{
+        position: relative;
+        right:100%
+        
+
+    }
+    #hhf-1 i:hover{
+       cursor: pointer;
+    }
+    #head2{
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+    .list #x{
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    @media screen and (max-width: 600px) {
+    #head1 {
+        font-size: 150%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #head2 {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #head3 {
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #sidescroll {
+        flex-direction: column; /* Stack images vertically */
+        height: auto; /* Allow height to adjust automatically */
+        align-items: center; /* Center logos in the flex container */
+    }
+
+    .imgcont {
+        width: 90vw; /* Use a larger width to fit smaller screens */
+        padding-right: 0; /* Remove padding for smaller screens */
+        display: flex;
+        justify-content: center; /* Center images */
+        align-items: center;
+        margin-bottom: 10px; /* Add some space between logos */
+    }
+
+    /* Target the Eurabus image specifically (assuming it's the second imgcont) */
+    #body1 .imgcont:nth-child(3) {
+        height: 150px; /* Increase the height for the Eurabus image */
+        overflow: hidden; /* Maintain layout */
+    }
+
+    #body1, #body2 {
+        height: auto; /* Allow content to adjust based on content */
+    }
+
+    .list #x {
+        padding: 15px; /* Adjust padding for better spacing */
+        font-size: 16px; /* Ensure text is readable */
+    }
+}
+
+
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS and Popper.js (for responsive navbar) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div id="head1">
+            <div id="hhf-1">
+                <i class="ri-arrow-left-up-line" id="xyz"></i>Clients</div>
+            
+        </div>
+        <div id="body1">
+            <div id="sidescroll">
+                <div class="imgcont" style="width: 30vw;"><img src="/logos/COB.jpg" alt=""></div> 
+                <div class="imgcont"><img src="/logos/Eurabus.jpg" alt=""></div> 
+                <div class="imgcont" style="width: 25vw;"><img src="/logos/Qevtech.jpg" alt=""></div> 
+                <div class="imgcont" style="width: 17.5vw;"><img src="/logos/volkswagen.jpeg" alt=""></div> 
+                
+                <div class="imgcont" style="width: 17.5vw; font-size: 40px; display: flex; justify-content: center; align-items: center;">Spanish Trucks Association </div> 
+            </div>
+        </div>
+        <div id="head2">
+            <div id="hhf-1">Clients in testing Phase</div>
+            
+        </div>
+        <div id="body2">
+            <div id="sidescroll">
+                <div class="imgcont" style="width: 20vw; transform: scale(1.5);"><img src="/testing.logos/bmw.png" alt=""></div> 
+                <div class="imgcont" style="width: 30vw;"><img src="/testing.logos/Mercedes-Benz-Logo.png" alt=""></div> 
+                <div class="imgcont" style="width: 25vw; font-size: 40px; display: flex; justify-content: center; align-items: center;"><b>Mann Trucks</b></div> 
+                <div class="imgcont" style="width: 20vw;"><img src="/testing.logos/Volvo.png" alt=""></div> 
+            </div>
+        </div>
+    
+        <div id="head3">
+            <div id="hhf-1">Collaborations</div>
+            
+        </div>
+        <div id="body3">
+            <div class="list">
+                <div id="x">FraunHofer Research Group
+                </div>
+                <hr>
+                <div id="x"> University of Chemnitz
+                    </div>
+                    <hr>
+                <div id="x">Aumann AG
+                    </div>
+                    <hr>
+                <div id="x">FraunHaufer IWU
+                </div>
+                <hr>
+                <div id="x">FraunHaufer IWS
+                    </div>
+                    <hr>
+                <div id="x">Evico
+                    </div>
+                    <hr>
+                <div id="x">XYNtuo</div>
+            </div>
+        </div>
+    
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+         gsap.registerPlugin(ScrollTrigger);
+
+// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".main"),
+  smooth: true
+});
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".main", {
+  scrollTop(value) {
+    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  getBoundingClientRect() {
+    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+  },
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+});
+
+
+
+
+
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
+document.getElementById('xyz').onclick = function() {
+        window.location.href = 'index.html'; // Replace with your image path
+    };
+window.addEventListener("wheel",function(dets){
+    if(dets.deltaY>0){
+        gsap.to("#imgcont",{
+            transform:'translateX(-100%)',
+            delay:1,
+            duration:2,
+            repeat:-1
+        })
+    }
+
+})
+
+    </script>
+</body>
+</html>
